@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>舞象基金會 — 後台管理</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans TC',sans-serif;background:#F5E6D0;min-height:100vh;display:flex;justify-content:center;padding:20px 16px}
+.page{max-width:680px;width:100%;background:#FBF7F0;border-radius:10px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.06)}
+
+/* Header */
+.hdr{background:#F5E6D0;padding:16px 24px;display:flex;align-items:center;gap:14px}
+.hdr img{width:52px;height:52px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.hdr .org{flex:1;min-width:0}
+.hdr h1{font-size:20px;font-weight:500;letter-spacing:2px;color:#2B2B2B}
+.hdr .sub{font-size:12px;color:#7A6A50;margin-top:2px}
+.bar{height:3px;background:#D4A657}
+
+/* Footer - savannah visible, text BELOW image */
+.ft-img{width:100%;display:block;height:auto;max-height:90px;object-fit:cover}
+.ft-bar{background:#5A4A30;padding:8px 0;text-align:center}
+.ft-bar span{font-size:10px;color:rgba(255,255,255,.7);letter-spacing:.5px}
+
+/* Body */
+.bd{padding:24px}
+.stitle{font-size:18px;font-weight:500;color:#C8512A;letter-spacing:1px;line-height:1.2}
+.ssub{font-size:14px;font-weight:400;color:#5A4A30;margin-top:4px;margin-bottom:20px}
+.f{margin-bottom:16px}
+.f label{display:block;font-size:13px;font-weight:500;color:#5A4A30;margin-bottom:6px}
+.f .req{color:#C8512A}
+.f input,.f textarea{width:100%;padding:10px 13px;border:1px solid #E8D4B0;border-radius:8px;font-size:14px;font-family:inherit;background:white;color:#2B2B2B}
+.f input:focus,.f textarea:focus{outline:none;border-color:#C8512A;box-shadow:0 0 0 3px rgba(200,81,42,.1)}
+.f textarea{resize:vertical}
+
+/* Upload box */
+.ubox{background:#FDF9F1;padding:18px;border-radius:10px;border:1px solid #F0E2C4;margin-bottom:20px}
+.ubox .bt{font-size:14px;font-weight:500;color:#5A4A30;margin-bottom:14px}
+.dgt{font-size:13px;font-weight:500;color:#C8512A;margin-bottom:8px;margin-top:4px}
+.drow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.uf{margin-bottom:4px}
+.uf label{display:block;font-size:12px;font-weight:500;color:#5A4A30;margin-bottom:4px}
+.uf .req{color:#C8512A}
+.drop{border:2px dashed #E8D4B0;border-radius:8px;padding:14px;text-align:center;cursor:pointer;background:white;transition:all .15s}
+.drop:hover{border-color:#D4A657}
+.drop.over{border-color:#C8512A;background:#FDF3EC}
+.drop .hint{font-size:11px;color:#8A7A60}
+.drop .limit{font-size:9px;color:#B09A70;margin-top:2px}
+.done{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#E8F5E9;border:1px solid #A5D6A7;border-radius:6px}
+.done .ico{width:24px;height:24px;background:#C8512A;border-radius:4px;display:flex;align-items:center;justify-content:center;color:white;font-size:8px;font-weight:600;flex-shrink:0}
+.done .info{flex:1;min-width:0}
+.done .fn{font-size:11px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.done .sz{font-size:9px;color:#558B2F}
+.done .rm{background:none;border:none;color:#C8512A;cursor:pointer;font-size:13px;padding:0 2px}
+.snote{font-size:10px;color:#9A8A70;line-height:1.5;margin-top:8px}
+
+/* Buttons */
+.btn{width:100%;padding:14px;background:#D4B8A8;color:white;border:none;border-radius:8px;font-size:15px;font-weight:500;cursor:not-allowed;font-family:inherit;transition:.15s}
+.btn.ok{background:#C8512A;cursor:pointer}
+.btn.ok:hover{background:#A8421F}
+
+/* Links result */
+.lbox{background:#E8F5E9;border:1px solid #A5D6A7;border-radius:10px;padding:18px;margin-bottom:16px}
+.lbox .done-title{font-size:16px;font-weight:500;color:#2E7D32;text-align:center;margin-bottom:14px}
+.ll{font-size:13px;color:#5A4A30;margin-bottom:6px;font-weight:500}
+.link-row{display:flex;gap:8px;margin-bottom:14px}
+.link-url{flex:1;font-family:monospace;font-size:11px;background:white;padding:8px 12px;border-radius:6px;border:1px solid #C8E6C9;word-break:break-all;user-select:all;line-height:1.5}
+.copy-btn{flex-shrink:0;padding:8px 14px;background:#2E7D32;color:white;border:none;border-radius:6px;font-size:12px;cursor:pointer;font-family:inherit;transition:.15s}
+.copy-btn:hover{background:#1B5E20}
+.copy-btn.copied{background:#558B2F}
+.ln{font-size:12px;color:#558B2F;text-align:center;margin-top:4px;line-height:1.6}
+
+/* Login */
+.login{min-height:340px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;padding:20px}
+.login .t{font-size:18px;font-weight:500;color:#2B2B2B}
+.login .s{font-size:13px;color:#8A7A60}
+.login .ef{margin-top:8px}
+.login .ef input{padding:10px 14px;border:1px solid #E8D4B0;border-radius:8px;font-size:14px;font-family:inherit;width:280px;text-align:center}
+.login .ef input:focus{outline:none;border-color:#C8512A}
+.gbtn{padding:12px 28px;border:1px solid #C8512A;border-radius:8px;background:white;cursor:pointer;font-size:14px;font-family:inherit;color:#C8512A;font-weight:500;transition:.15s}
+.gbtn:hover{background:#FDF3EC}
+
+.sample{font-size:12px;padding:6px 14px;border-radius:6px;border:1px solid #E8D4B0;background:#FDF9F1;cursor:pointer;color:#5A4A30;font-family:inherit}
+.sample:hover{background:#F0E2C4}
+.hid{display:none}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hdr">
+    <img src="/elephant.png" alt="舞象基金會">
+    <div class="org">
+      <h1>舞象基金會</h1>
+      <p class="sub">Dancing With The Elephant</p>
+    </div>
+  </div>
+  <div class="bar"></div>
+
+  <!-- Login -->
+  <div class="bd" id="loginView">
+    <div class="login">
+      <div class="t">管理後台登入</div>
+      <div class="s">請輸入管理員電子郵件</div>
+      <div class="ef"><input type="email" id="loginEmail" placeholder="your-email@gmail.com" value="zenjoy99@gmail.com"></div>
+      <button class="gbtn" onclick="doLogin()">登入</button>
+    </div>
+  </div>
+
+  <!-- Admin form -->
+  <div class="bd hid" id="adminView">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px">
+      <div>
+        <div class="stitle">同意書簽署回覆系統</div>
+        <div class="ssub">後台管理 Admin Panel</div>
+      </div>
+      <button class="sample" onclick="loadSample()">載入範例</button>
+    </div>
+
+    <div class="f"><label>志工類別 <span class="req">*</span></label><input id="fGroup" placeholder="例：核心志工、隨喜志工、專長志工" oninput="chk()"></div>
+    <div class="f"><label>同意書標題 <span class="req">*</span></label><input id="fTitle" placeholder="例：核心志工服務同意書" oninput="chk()"></div>
+    <div class="f"><label>說明內容 <span class="req">*</span></label><textarea id="fContent" rows="3" placeholder="歡迎加入舞象基金會..." oninput="chk()"></textarea></div>
+
+    <div class="ubox">
+      <div class="bt">上傳協議文件</div>
+      <div class="dgt">協議文件一 <span class="req">*</span></div>
+      <div class="drow">
+        <div class="uf"><label>繁體中文版 <span class="req">*</span></label><div id="zone_d1tw"></div></div>
+        <div class="uf"><label>简体中文版 <span class="req">*</span></label><div id="zone_d1cn"></div></div>
+      </div>
+      <div class="dgt">協議文件二（選填）</div>
+      <div class="drow">
+        <div class="uf"><label>繁體中文版</label><div id="zone_d2tw"></div></div>
+        <div class="uf"><label>简体中文版</label><div id="zone_d2cn"></div></div>
+      </div>
+      <div class="snote">上傳後檔案存放至 Cloudflare R2。每檔上限 10MB。</div>
+    </div>
+
+    <div id="linksArea"></div>
+    <div id="errArea" style="color:#C8512A;font-size:13px;margin-bottom:10px"></div>
+    <button class="btn" id="pubBtn" onclick="publish()">建立同意書並產生連結</button>
+  </div>
+
+  <!-- Footer: image then text bar below -->
+  <img src="/savannah.png" alt="" class="ft-img">
+  <div class="ft-bar"><span>dancingwiththelephant@gmail.com</span></div>
+</div>
+
+<script>
+var MAX_MB = 10;
+var files = { d1tw: null, d1cn: null, d2tw: null, d2cn: null };
+var adminEmail = "";
+
+function renderZone(key) {
+  var el = document.getElementById("zone_" + key);
+  var f = files[key];
+  if (f) {
+    el.innerHTML = '<div class="done"><div class="ico">PDF</div><div class="info"><div class="fn">' + f.name + '</div><div class="sz">' + (f.size / 1024).toFixed(0) + ' KB</div></div><button class="rm" onclick="clearFile(\'' + key + '\')">✕</button></div>';
+  } else {
+    el.innerHTML = '<div class="drop" id="dz_' + key + '"><div class="hint">點擊或拖曳 PDF</div><div class="limit">上限 ' + MAX_MB + 'MB</div></div><input type="file" id="fi_' + key + '" accept=".pdf" hidden>';
+    var dz = document.getElementById("dz_" + key);
+    var fi = document.getElementById("fi_" + key);
+    dz.onclick = function() { fi.click(); };
+    dz.ondragover = function(e) { e.preventDefault(); dz.classList.add("over"); };
+    dz.ondragleave = function() { dz.classList.remove("over"); };
+    dz.ondrop = function(e) { e.preventDefault(); dz.classList.remove("over"); pickFile(key, e.dataTransfer.files); };
+    fi.onchange = function() { pickFile(key, fi.files); };
+  }
+}
+
+function pickFile(key, list) {
+  for (var i = 0; i < list.length; i++) {
+    if (list[i].name.toLowerCase().endsWith(".pdf")) {
+      if (list[i].size > MAX_MB * 1024 * 1024) { alert("檔案超過 " + MAX_MB + "MB"); return; }
+      files[key] = list[i];
+      renderZone(key);
+      chk();
+      return;
+    }
+  }
+  alert("請選擇 PDF 檔案");
+}
+
+function clearFile(key) { files[key] = null; renderZone(key); chk(); }
+
+function doLogin() {
+  adminEmail = document.getElementById("loginEmail").value.trim().toLowerCase();
+  document.getElementById("loginView").classList.add("hid");
+  document.getElementById("adminView").classList.remove("hid");
+}
+
+function loadSample() {
+  document.getElementById("fGroup").value = "核心志工";
+  document.getElementById("fTitle").value = "核心志工服務同意書";
+  document.getElementById("fContent").value = "舞象基金會為非營利組織，致力於推動家庭對話溝通與自我成長。為實踐本會宗旨，並強化志工參與與管理，特訂立本同意書，以明定雙方之權利與義務。請仔細閱讀以下協議文件，並於下方勾選確認。";
+  files.d1tw = { name: "核心志工同意書.pdf", size: 582000 };
+  files.d1cn = { name: "核心志工同意书.pdf", size: 560000 };
+  files.d2tw = { name: "個人資料同意書.pdf", size: 214000 };
+  files.d2cn = { name: "个人资料同意书.pdf", size: 205000 };
+  ["d1tw","d1cn","d2tw","d2cn"].forEach(renderZone);
+  chk();
+}
+
+function chk() {
+  var ok = document.getElementById("fGroup").value.trim() && document.getElementById("fTitle").value.trim() && files.d1tw && files.d1cn;
+  var btn = document.getElementById("pubBtn");
+  btn.classList.toggle("ok", !!ok);
+  btn.disabled = !ok;
+}
+
+function copyLink(id) {
+  var el = document.getElementById(id);
+  var text = el.textContent.trim();
+  navigator.clipboard.writeText(text).then(function() {
+    var btn = el.parentElement.querySelector(".copy-btn");
+    btn.textContent = "已複製 ✓";
+    btn.classList.add("copied");
+    setTimeout(function() { btn.textContent = "複製"; btn.classList.remove("copied"); }, 2000);
+  });
+}
+
+async function publish() {
+  var btn = document.getElementById("pubBtn");
+  if (btn.disabled) return;
+  btn.disabled = true;
+  btn.textContent = "建立中...";
+  document.getElementById("errArea").textContent = "";
+
+  try {
+    var res = await fetch("/api/campaign", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        groupName: document.getElementById("fGroup").value.trim(),
+        title: document.getElementById("fTitle").value.trim(),
+        content: document.getElementById("fContent").value.trim(),
+        doc1twName: files.d1tw ? files.d1tw.name : "",
+        doc1cnName: files.d1cn ? files.d1cn.name : "",
+        doc2twName: files.d2tw ? files.d2tw.name : null,
+        doc2cnName: files.d2cn ? files.d2cn.name : null,
+        adminEmail: adminEmail
+      })
+    });
+    var data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Failed");
+
+    var cid = data.campaign.id;
+    var base = location.origin;
+    var twUrl = base + "/volunteer.html?id=" + cid + "&lang=tw";
+    var cnUrl = base + "/volunteer.html?id=" + cid + "&lang=cn";
+
+    document.getElementById("linksArea").innerHTML =
+      '<div class="lbox">' +
+        '<div class="done-title">✅ 同意書已建立</div>' +
+        '<div class="ll">繁體中文版（台灣志工）：</div>' +
+        '<div class="link-row"><div class="link-url" id="twUrl">' + twUrl + '</div><button class="copy-btn" onclick="copyLink(\'twUrl\')">複製</button></div>' +
+        '<div class="ll">简体中文版（中國志工）：</div>' +
+        '<div class="link-row"><div class="link-url" id="cnUrl">' + cnUrl + '</div><button class="copy-btn" onclick="copyLink(\'cnUrl\')">複製</button></div>' +
+        '<div class="ln">複製連結後透過 Email、LINE 或微信傳給各組組長分發給志工</div>' +
+      '</div>';
+    btn.classList.add("hid");
+
+  } catch (err) {
+    document.getElementById("errArea").textContent = "錯誤：" + err.message;
+    btn.disabled = false;
+    btn.textContent = "建立同意書並產生連結";
+    btn.classList.add("ok");
+  }
+}
+
+["d1tw","d1cn","d2tw","d2cn"].forEach(renderZone);
+</script>
+</body>
+</html>

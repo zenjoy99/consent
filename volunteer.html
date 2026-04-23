@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>舞象基金會 — 同意書</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans TC','Noto Sans SC',sans-serif;background:#F5E6D0;min-height:100vh;display:flex;justify-content:center;padding:20px 16px}
+.page{max-width:640px;width:100%;background:#FBF7F0;border-radius:10px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.hdr{background:#F5E6D0;padding:16px 24px;display:flex;align-items:center;gap:14px}
+.hdr img{width:52px;height:52px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.hdr .org{flex:1;min-width:0}
+.hdr h1{font-size:20px;font-weight:500;letter-spacing:2px;color:#2B2B2B}
+.hdr .sub{font-size:12px;color:#7A6A50;margin-top:2px}
+.badge{background:#E8D4B0;padding:4px 14px;border-radius:16px;font-size:12px;color:#5A4A30;font-weight:500;flex-shrink:0}
+.bar{height:3px;background:#D4A657}
+.ft-img{width:100%;display:block;height:auto;max-height:90px;object-fit:cover}
+.ft-bar{background:#5A4A30;padding:8px 0;text-align:center}
+.ft-bar span{font-size:10px;color:rgba(255,255,255,.7);letter-spacing:.5px}
+.bd{padding:24px}
+.title{font-size:20px;font-weight:500;color:#C8512A;letter-spacing:1.5px;margin-bottom:4px}
+.gtag{display:inline-block;font-size:11px;color:#7A6A50;background:#F0E2C4;padding:2px 12px;border-radius:12px;margin-bottom:12px}
+.content{font-size:14px;line-height:1.9;margin-bottom:22px}
+.f{margin-bottom:14px}
+.f label{display:block;font-size:13px;font-weight:500;color:#5A4A30;margin-bottom:6px}
+.f input{width:100%;padding:10px 13px;border:1px solid #E8D4B0;border-radius:8px;font-size:14px;font-family:inherit;background:white}
+.f input:focus{outline:none;border-color:#C8512A;box-shadow:0 0 0 3px rgba(200,81,42,.1)}
+.dsec{margin-bottom:18px}
+.dsec h3{font-size:14px;font-weight:500;color:#5A4A30;margin-bottom:8px}
+.pc{background:#FBF7F0;border:1px solid #E8D4B0;border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:14px}
+.pi{width:36px;height:36px;flex-shrink:0;background:#C8512A;border-radius:7px;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:600}
+.pinfo{flex:1;min-width:0}
+.pn{font-size:14px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ph{font-size:11px;color:#8A7A60;margin-top:2px}
+.obtn{background:transparent;border:1px solid #C8512A;color:#C8512A;padding:6px 14px;border-radius:7px;font-size:13px;cursor:pointer;font-family:inherit;transition:.15s;white-space:nowrap}
+.obtn:hover{background:#C8512A;color:white}
+.ag{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:#FDF9F1;border:1px solid #F0E2C4;border-radius:8px;margin-top:8px;cursor:pointer}
+.ag input{margin-top:3px;accent-color:#C8512A;width:16px;height:16px;flex-shrink:0}
+.ag span{font-size:13px;line-height:1.6}
+.kw{color:#C8512A;font-weight:500}
+.div{height:1px;background:#E8D4B0;margin:20px 0}
+.uplb{font-size:13px;font-weight:500;color:#5A4A30;margin-bottom:6px}
+.dz{border:2px dashed #E8D4B0;border-radius:8px;padding:20px;text-align:center;cursor:pointer;background:#FDF9F1;transition:.15s}
+.dz.over{border-color:#C8512A;background:#FDF3EC}
+.dz .m{font-size:12px;color:#8A7A60}
+.dz .s{font-size:10px;color:#B09A70;margin-top:3px}
+.ulist{margin-top:8px}
+.ui{display:flex;align-items:center;gap:8px;padding:6px 10px;background:#E8F5E9;border:1px solid #C8E6C9;border-radius:6px;margin-bottom:4px;font-size:12px}
+.ui .ic{width:22px;height:22px;background:#C8512A;border-radius:4px;display:flex;align-items:center;justify-content:center;color:white;font-size:8px;font-weight:600;flex-shrink:0}
+.ui .fn{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ui .sz{color:#558B2F;flex-shrink:0}
+.ui .rm{background:none;border:none;color:#C8512A;cursor:pointer;font-size:14px}
+.upn{font-size:12px;color:#8A7A60;margin:8px 0 18px;line-height:1.6}
+.ts{background:#F5EEE0;border:1px solid #E8D4B0;border-radius:8px;padding:12px 14px;display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.tsb{width:22px;height:22px;border:2px solid #B8A07A;border-radius:4px;background:white;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
+.tsb.on{background:#2E7D3F;border-color:#2E7D3F}
+.sbtn{width:100%;padding:13px;background:#D4B8A8;color:white;border:none;border-radius:8px;font-size:15px;font-weight:500;cursor:not-allowed;font-family:inherit;transition:.15s}
+.sbtn.ok{background:#C8512A;cursor:pointer}
+.sbtn.ok:hover{background:#A8421F}
+.ne{font-size:12px;color:#8A7A60;text-align:center;margin-top:10px}
+.ok-box{text-align:center;padding:40px 20px}
+.ok-box .chk{width:60px;height:60px;margin:0 auto 16px;border-radius:50%;background:#2E7D3F;display:flex;align-items:center;justify-content:center}
+.ok-box h2{color:#C8512A;font-size:20px;font-weight:500;margin-bottom:12px}
+.ok-box .msg{font-size:15px;line-height:1.8}
+.ok-box .em{font-size:13px;color:#7A6A50;line-height:1.8;margin-top:8px}
+.ok-box code{font-family:monospace;color:#2B2B2B}
+.loading{padding:60px;text-align:center;color:#8A7A60;font-size:14px}
+.error-msg{padding:60px;text-align:center;color:#C8512A;font-size:14px}
+.hid{display:none}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hdr">
+    <img src="/elephant.png" alt="舞象基金會">
+    <div class="org"><h1>舞象基金會</h1><p class="sub">Dancing With The Elephant</p></div>
+    <div class="badge" id="langBadge"></div>
+  </div>
+  <div class="bar"></div>
+  <div class="bd" id="loadingView"><div class="loading">載入中...</div></div>
+  <div class="bd hid" id="errorView"><div class="error-msg" id="errorMsg"></div></div>
+  <div class="bd hid" id="formView"></div>
+  <div class="bd hid" id="successView"></div>
+  <img src="/savannah.png" alt="" class="ft-img">
+  <div class="ft-bar"><span>dancingwiththelephant@gmail.com</span></div>
+</div>
+
+<script>
+// TW→CN
+var TWC={"協":"协","議":"议","書":"书","簽":"签","個":"个","資":"资","護":"护","關":"关","務":"务","應":"应","認":"认","證":"证","義":"义","對":"对","歡":"欢","與":"与","辦":"办","願":"愿","體":"体","從":"从","權":"权","長":"长","專":"专","機":"机","團":"团","會":"会","學":"学","報":"报","電":"电","話":"话","選":"选","聯":"联","類":"类","國":"国","區":"区","總":"总","經":"经","點":"点","開":"开","間":"间","問":"问","題":"题","將":"将","實":"实","過":"过","進":"进","運":"运","動":"动","計":"计","設":"设","備":"备","處":"处","發":"发","產":"产","場":"场","當":"当","線":"线","網":"网","結":"结","組":"组","統":"统","記":"记","訓":"训","練":"练","讓":"让","規":"规","參":"参","單":"单","標":"标","準":"准","決":"决","職":"职","責":"责","連":"连","達":"达","還":"还","費":"费","錄":"录","領":"领","頭":"头","額":"额","檔":"档","營":"营","範":"范","離":"离","隨":"随","須":"须","預":"预","驗":"验","強":"强","確":"确","閱":"阅","讀":"读","歷":"历","為":"为","請":"请","說":"说","質":"质","項":"项","頁":"页","滿":"满","樣":"样","盡":"尽","歸":"归"};
+function toC(s){return s?s.split("").map(function(c){return TWC[c]||c;}).join(""):s;}
+
+var P=new URLSearchParams(location.search);
+var campaignId=P.get("id");
+var lang=P.get("lang")==="cn"?"cn":"tw";
+var isCn=lang==="cn";
+
+var T={
+tw:{badge:"繁體中文",name:"志工姓名",email:"電子郵件地址",docN:["協議文件一","協議文件二"],open:"開啟",hint:"請下載並詳閱",agPre:"我已閱讀並",agKw:"同意協議",agSuf:["文件一之全部內容","文件二之全部內容"],bot:"我不是機器人",submit:"送出同意書",noEdit:"提交後將無法修改",ok:"提交成功",thx:"感謝您，",sent:"確認信已寄送至",upLb:"上傳已簽署之同意書",upHint:"點擊選擇或拖曳 PDF 檔案至此",upNote:"請將簽署之實體同意書寄回本會存查",ph:"例 · 王小明",dup:"此信箱已提交過，無法再次提交。"},
+cn:{badge:"简体中文",name:"志工姓名",email:"电子邮件地址",docN:["协议文件一","协议文件二"],open:"打开",hint:"请下载并详阅",agPre:"我已阅读并",agKw:"同意协议",agSuf:["文件一之全部内容","文件二之全部内容"],bot:"我不是机器人",submit:"提交同意书",noEdit:"提交后将无法修改",ok:"提交成功",thx:"感谢您，",sent:"确认信已发送至",upLb:"上传已签署之同意书",upHint:"点击选择或拖拽 PDF 文件至此",upNote:"请将签署之实体同意书寄回本会存查",ph:"例 · 王小明",dup:"此邮箱已提交过，无法再次提交。"}
+};
+var t=T[lang];
+document.getElementById("langBadge").textContent=t.badge;
+
+var campaign=null,capOk=false,uploadedFiles=[];
+
+async function loadCampaign(){
+  if(!campaignId){showError("缺少同意書 ID");return;}
+  try{
+    var res=await fetch("/api/campaign?id="+campaignId);
+    if(!res.ok)throw new Error("not found");
+    campaign=await res.json();
+    renderForm();
+  }catch(e){showError("找不到此同意書");}
+}
+
+function showError(msg){
+  document.getElementById("loadingView").classList.add("hid");
+  document.getElementById("errorView").classList.remove("hid");
+  document.getElementById("errorMsg").textContent=msg;
+}
+
+function renderForm(){
+  document.getElementById("loadingView").classList.add("hid");
+  document.getElementById("formView").classList.remove("hid");
+
+  var dTitle=isCn?toC(campaign.title):campaign.title;
+  var dContent=isCn?toC(campaign.content):campaign.content;
+  var dGroup=isCn?toC(campaign.groupName):campaign.groupName;
+  var d1name=isCn?campaign.doc1.cn:campaign.doc1.tw;
+  var d2name=campaign.doc2?(isCn?campaign.doc2.cn:campaign.doc2.tw):null;
+
+  var h='<div class="title">'+dTitle+'</div>';
+  if(dGroup)h+='<div class="gtag">'+dGroup+'</div>';
+  h+='<div class="content">'+dContent+'</div>';
+  h+='<div class="f"><label>'+t.name+'</label><input type="text" id="inName" placeholder="'+t.ph+'" oninput="validate()"></div>';
+  h+='<div class="f" style="margin-bottom:22px"><label>'+t.email+'</label><input type="email" id="inEmail" placeholder="volunteer@example.com" oninput="validate()"></div>';
+
+  // Doc 1
+  h+='<div class="dsec"><h3>'+t.docN[0]+'</h3>';
+  h+='<div class="pc"><div class="pi">PDF</div><div class="pinfo"><div class="pn">'+d1name+'</div><div class="ph">'+t.hint+'</div></div>';
+  h+='<button class="obtn" onclick="alert(\'PDF 檔案將在正式部署 R2 後可下載\')">'+t.open+'</button></div>';
+  h+='<label class="ag"><input type="checkbox" id="chk1" onchange="validate()"><span>'+t.agPre+'<span class="kw">'+t.agKw+'</span>'+t.agSuf[0]+'</span></label></div>';
+
+  // Doc 2
+  if(d2name){
+    h+='<div class="dsec"><h3>'+t.docN[1]+'</h3>';
+    h+='<div class="pc"><div class="pi">PDF</div><div class="pinfo"><div class="pn">'+d2name+'</div><div class="ph">'+t.hint+'</div></div>';
+    h+='<button class="obtn" onclick="alert(\'PDF 檔案將在正式部署 R2 後可下載\')">'+t.open+'</button></div>';
+    h+='<label class="ag"><input type="checkbox" id="chk2" onchange="validate()"><span>'+t.agPre+'<span class="kw">'+t.agKw+'</span>'+t.agSuf[1]+'</span></label></div>';
+  }
+
+  h+='<div class="div"></div>';
+  h+='<div class="uplb">'+t.upLb+'</div>';
+  h+='<div class="dz" id="dropZone" onclick="document.getElementById(\'fileIn\').click()">';
+  h+='<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 6px;opacity:.5"><rect x="5" y="4" width="18" height="22" rx="2" fill="none" stroke="#C8512A" stroke-width="1.5"/><path d="M10 16 L14 12 L18 16" stroke="#C8512A" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="14" y1="12" x2="14" y2="22" stroke="#C8512A" stroke-width="1.5" stroke-linecap="round"/></svg>';
+  h+='<div class="m">'+t.upHint+'</div><div class="s">上限 10MB</div></div>';
+  h+='<input type="file" id="fileIn" accept=".pdf" multiple hidden>';
+  h+='<div class="ulist" id="upList"></div>';
+  h+='<div class="upn">'+t.upNote+'</div>';
+
+  h+='<div class="ts"><div class="tsb" id="tsBox" onclick="toggleCap()"></div><div><div style="font-size:14px">'+t.bot+'</div><div style="font-size:9px;color:#9A8A70;letter-spacing:.5px">CLOUDFLARE TURNSTILE</div></div></div>';
+  h+='<button class="sbtn" id="submitBtn" onclick="submitForm()">'+t.submit+'</button>';
+  h+='<div class="ne">⚠ '+t.noEdit+'</div>';
+
+  document.getElementById("formView").innerHTML=h;
+
+  var dz=document.getElementById("dropZone");
+  var fi=document.getElementById("fileIn");
+  dz.ondragover=function(e){e.preventDefault();dz.classList.add("over");};
+  dz.ondragleave=function(){dz.classList.remove("over");};
+  dz.ondrop=function(e){e.preventDefault();dz.classList.remove("over");addFiles(e.dataTransfer.files);};
+  fi.onchange=function(){addFiles(fi.files);fi.value="";};
+}
+
+function toggleCap(){
+  capOk=!capOk;
+  var b=document.getElementById("tsBox");
+  b.classList.toggle("on",capOk);
+  b.innerHTML=capOk?'<svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6 L5 9 L10 3" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>':"";
+  validate();
+}
+
+function validate(){
+  var n=document.getElementById("inName"),e=document.getElementById("inEmail"),c1=document.getElementById("chk1"),c2=document.getElementById("chk2");
+  if(!n||!e||!c1)return;
+  var ok=n.value.trim()&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.value.trim())&&c1.checked&&(!c2||c2.checked)&&capOk;
+  var btn=document.getElementById("submitBtn");
+  btn.classList.toggle("ok",ok);btn.disabled=!ok;
+}
+
+function addFiles(fs){
+  for(var i=0;i<fs.length;i++){
+    if(!fs[i].name.endsWith(".pdf"))continue;
+    if(fs[i].size>10*1024*1024){alert("檔案超過 10MB");continue;}
+    uploadedFiles.push(fs[i]);
+  }
+  renderUploads();
+}
+function removeFile(i){uploadedFiles.splice(i,1);renderUploads();}
+function renderUploads(){
+  var h="";
+  for(var i=0;i<uploadedFiles.length;i++){
+    h+='<div class="ui"><div class="ic">PDF</div><span class="fn">'+uploadedFiles[i].name+'</span><span class="sz">'+(uploadedFiles[i].size/1024).toFixed(0)+' KB</span><button class="rm" onclick="removeFile('+i+')">✕</button></div>';
+  }
+  document.getElementById("upList").innerHTML=h;
+}
+
+async function submitForm(){
+  var btn=document.getElementById("submitBtn");
+  if(btn.disabled)return;
+  btn.disabled=true;
+  btn.textContent=isCn?"提交中...":"送出中...";
+
+  var name=document.getElementById("inName").value.trim();
+  var email=document.getElementById("inEmail").value.trim();
+  var c2=document.getElementById("chk2");
+
+  try{
+    var res=await fetch("/api/submit",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        campaignId:campaign.id,name:name,email:email,lang:lang,
+        groupName:campaign.groupName,agree1:true,
+        agree2:c2?true:"n/a",
+        title:campaign.title,
+        doc1Name:campaign.doc1.tw,
+        doc2Name:campaign.doc2?campaign.doc2.tw:"",
+        uploadCount:uploadedFiles.length,
+        uploadFileNames:uploadedFiles.map(function(f){return f.name;})
+      })
+    });
+    var data=await res.json();
+    if(data.error==="duplicate"){alert(t.dup);btn.disabled=false;btn.textContent=t.submit;btn.classList.add("ok");return;}
+    if(!res.ok)throw new Error(data.error||"failed");
+
+    document.getElementById("formView").classList.add("hid");
+    document.getElementById("successView").classList.remove("hid");
+    document.getElementById("successView").innerHTML=
+      '<div class="ok-box"><div class="chk"><svg width="28" height="28" viewBox="0 0 28 28"><path d="M6 14 L12 20 L22 8" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'+
+      '<h2>'+t.ok+'</h2>'+
+      '<div class="msg">'+t.thx+'<span style="color:#C8512A;font-weight:500">'+name+'</span>！</div>'+
+      '<div class="em">'+t.sent+'<br><code>'+email+'</code></div></div>';
+  }catch(err){
+    alert("提交失敗："+err.message);
+    btn.disabled=false;btn.textContent=t.submit;btn.classList.add("ok");
+  }
+}
+
+loadCampaign();
+</script>
+</body>
+</html>
